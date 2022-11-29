@@ -1,0 +1,2 @@
+setuptools~=65.5.0
+termcolor~=2.1.1
