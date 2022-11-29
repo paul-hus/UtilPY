@@ -1,0 +1,7 @@
+README.md
+setup.py
+utilpython4206j5/__init__.py
+utilpython4206j5.egg-info/PKG-INFO
+utilpython4206j5.egg-info/SOURCES.txt
+utilpython4206j5.egg-info/dependency_links.txt
+utilpython4206j5.egg-info/top_level.txt
