@@ -2,8 +2,15 @@ from termcolor import colored
 import sys
 
 
-def lire_caractere():
-    ...
+def lire_caractere(question: str) -> str:
+    while True:
+        caractere = input(question)
+
+        if len(caractere) == 1: break
+
+        print("Veuillez saisir un seul caractère.")
+
+    return caractere
 
 
 def lire_chaine():
@@ -14,8 +21,13 @@ def lire_chaine_taille_intervalle():
     ...
 
 
-def lire_entier():
-    ...
+def lire_entier(question: str) -> int:
+    while True:
+        try:
+            entier = int(input(question))
+            return entier
+        except ValueError:
+            print("Veuillez saisir un simple entier.")
 
 
 def lire_entier_positif():
