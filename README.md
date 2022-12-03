@@ -1,12 +1,9 @@
-# UtilPY v10.0 Release
+# UtilPY v10.01 Release
 par Victor Paul-Hus-Côté
 ### Améliorations:
-- Finalisation et optimisation du module `math_utils.py`
-- Finalisation du module `console_os.py`
-- Avancement du module `console_utils.py`
-- Ajouts des fichiers `__init__.py` dans les packages
+- Correction mineur de bugs
 
 ### Dates de dernière mise à jour:
-> Saturday, 03-Dec-22 01:47:47 UTC
+> Saturday, 03-Dec-22 02:28:17 UTC
 
 ### Lien [GitHub](http://github.com/Killerzone09872/UtilPY "GitHub")
