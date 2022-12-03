@@ -9,7 +9,7 @@ def appuyer_touche_continuer() -> None:
     os.system("pause")
 
 
-def vider_console():
+def vider_console() -> None:
     os_type: str
     match platform:
         case "linux":
@@ -28,8 +28,8 @@ def vider_console():
     system(os_type)
 
 
-def afficher_erreur(message: str) -> None:
-    print(colored(message, "red"))
+def afficher_erreur(message: str) -> str:
+    return colored(message, "red")
 
 
 if __name__ == "__main__":
