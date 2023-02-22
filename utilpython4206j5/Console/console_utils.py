@@ -1,9 +1,7 @@
-from termcolor import colored
-
-
 def lire_caractere(question: str) -> str:
     """
-    Prend une question nécessitant une réponse à un seul caractère et retourne le caractère entré par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    Prend une question nécessitant une réponse à un seul caractère et retourne le caractère entré par l'utilisateur, et
+    affiche une erreur si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :return: La lettre choisie par l'utilisateur
     """
@@ -18,17 +16,41 @@ def lire_caractere(question: str) -> str:
     return caractere
 
 
-def lire_chaine():
-    ...
+def lire_chaine(question: str) -> str:
+    """
+    Prend une question nécessitant une réponse texte et retourne la réponse entrée par l'utilisateur.
+    :param question: Question posé à l'utilisateur
+    :return: La réponse texte choisie par l'utilisateur
+    """
+
+    print(question)
+    return input(": ")
 
 
-def lire_chaine_taille_intervalle():
-    ...
+def lire_chaine_taille_intervalle(question: str, limite_min: int, limite_max: int) -> str:
+    """
+    Prend une question nécessitant une réponse texte avec une longueur situé dans un intervalle donné comme réponse et
+    retourne la réponse entrée par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    :return:
+    """
+
+    print(question)
+    while True:
+        chaine = input(": ")
+
+        try:
+            if limite_min > len(chaine) > limite_max:
+                raise ValueError
+
+            return chaine
+        except ValueError:
+            print(f"Veuillez saisir une réponse de taille entre {limite_min} et {limite_max}.\n")
 
 
 def lire_entier(question: str) -> int:
     """
-    Prend une question nécessitant un entier comme réponse et retourne l'entier entré par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    Prend une question nécessitant un entier comme réponse et retourne l'entier entré par l'utilisateur, et affiche une
+    erreur si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :return: L'entier choisi par l'utilisateur
     """
@@ -44,7 +66,8 @@ def lire_entier(question: str) -> int:
 
 def lire_entier_positif(question: str) -> int:
     """
-    Prend une question nécessitant un entier positif comme réponse et retourne l'entier entré par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    Prend une question nécessitant un entier positif comme réponse et retourne l'entier entré par l'utilisateur, et
+    affiche une erreur si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :return: L'entier positif choisi par l'utilisateur
     """
@@ -66,7 +89,8 @@ def lire_entier_positif(question: str) -> int:
 
 def lire_entier_minimum(question: str, limite_min: int) -> int:
     """
-    Prend une question nécessitant un entier au dessus d'une certaine limite comme réponse et retourne l'entier entré par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    Prend une question nécessitant un entier au dessus d'une certaine limite comme réponse et retourne l'entier entré
+    par l'utilisateur, et affiche une erreur si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :param limite_min: La limite minimum de l'intervalle
     :return: L'entier valide choisi par l'utilisateur
@@ -84,12 +108,14 @@ def lire_entier_minimum(question: str, limite_min: int) -> int:
         except ValueError:
             print("Veuillez saisir un simple entier.\n")
         except AttributeError:
-            print("Veuillez saisir un entier valide.\n")
+            print(f"Veuillez saisir un entier plus grand que {limite_min}.\n")
 
 
 def lire_entier_intervalle(question: str, intervalle_min: int, intervalle_max: int) -> int:
     """
-    Prend une question nécessitant un entier situé dans un intervalle donné comme réponse et retourne l'entier entré par l'utilisateur si valide dans l'intervalle, et affiche une erreur si une valeur non-élement de l'intervalle est entrée ou si autre chose est entrée.
+    Prend une question nécessitant un entier situé dans un intervalle donné comme réponse et retourne l'entier entré
+    par l'utilisateur si valide dans l'intervalle, et affiche une erreur si une valeur non-élement de l'intervalle est
+    entrée ou si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :param intervalle_min: Limite minimale de l'intervalle
     :param intervalle_max: Limite maximale de l'intervalle
@@ -108,12 +134,13 @@ def lire_entier_intervalle(question: str, intervalle_min: int, intervalle_max: i
         except ValueError:
             print("Veuillez saisir un simple entier.\n")
         except AttributeError:
-            print("Veuillez saisir un entier valide.\n")
+            print(f"Veuillez saisir un entier entre {intervalle_min} et {intervalle_max}.\n")
 
 
 def lire_reel(question: str) -> float:
     """
-    Prend une question nécessitant un réel comme réponse et retourne le réel entré par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    Prend une question nécessitant un réel comme réponse et retourne le réel entré par l'utilisateur, et affiche une
+    erreur si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :return: Le réel choisi par l'utilisateur
     """
@@ -129,7 +156,8 @@ def lire_reel(question: str) -> float:
 
 def lire_reel_positif(question: str) -> float:
     """
-    Prend une question nécessitant un réel positif comme réponse et retourne le réel entré par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    Prend une question nécessitant un réel positif comme réponse et retourne le réel entré par l'utilisateur,
+    et affiche une erreur si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :return: Le réel positif choisi par l'utilisateur
     """
@@ -151,7 +179,8 @@ def lire_reel_positif(question: str) -> float:
 
 def lire_reel_minimum(question: str, limite_min: float) -> float:
     """
-    Prend une question nécessitant un réel au dessus d'une certaine limite comme réponse et retourne le réel entré par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    Prend une question nécessitant un réel au dessus d'une certaine limite comme réponse et retourne le réel entré par
+    l'utilisateur, et affiche une erreur si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :param limite_min: La limite minimum de l'intervalle
     :return: Le réel valide choisi par l'utilisateur
@@ -169,12 +198,14 @@ def lire_reel_minimum(question: str, limite_min: float) -> float:
         except ValueError:
             print("Veuillez saisir un simple nombre.\n")
         except AttributeError:
-            print("Veuillez saisir un nombre valide.\n")
+            print(f"Veuillez saisir un nombre plus grand que {limite_min}.\n")
 
 
 def lire_reel_intervalle(question: str, intervalle_min: float, intervalle_max: float) -> float:
     """
-    Prend une question nécessitant un réel situé dans un intervalle donné comme réponse et retourne le réel entré par l'utilisateur si valide dans l'intervalle, et affiche une erreur si une valeur non-élement de l'intervalle est entrée ou si autre chose est entrée.
+    Prend une question nécessitant un réel situé dans un intervalle donné comme réponse et retourne le réel entré par
+    l'utilisateur si valide dans l'intervalle, et affiche une erreur si une valeur non-élement de l'intervalle est
+    entrée ou si autre chose est entrée.
     :param question: Question posé à l'utilisateur
     :param intervalle_min: Limite minimale de l'intervalle
     :param intervalle_max: Limite maximale de l'intervalle
@@ -193,12 +224,14 @@ def lire_reel_intervalle(question: str, intervalle_min: float, intervalle_max: f
         except ValueError:
             print("Veuillez saisir un simple nombre.\n")
         except AttributeError:
-            print("Veuillez saisir un nombre valide.\n")
+            print(f"Veuillez saisir un nombre entre {intervalle_min} et {intervalle_max}.\n")
 
 
 def lire_entier_minimum_ou_sentinelle(question: str, limite_min: int, sentinelle: int) -> int:
     """
-    Prend une question nécessitant un entier au dessus d'une certaine limite comme réponse et retourne l'entier entré par l'utilisateur, et affiche une erreur si autre chose est entrée. Si la sentinelle est entrée, le script va arrêter.
+    Prend une question nécessitant un entier au dessus d'une certaine limite comme réponse et retourne l'entier entré
+    par l'utilisateur, et affiche une erreur si autre chose est entrée.
+    Si la sentinelle est entrée, le script va arrêter.
     :param question: Question posé à l'utilisateur
     :param limite_min: La limite minimum de l'intervalle
     :param sentinelle: L'entier choisi pour sortir du programme
@@ -219,7 +252,7 @@ def lire_entier_minimum_ou_sentinelle(question: str, limite_min: int, sentinelle
         except ValueError:
             print("Veuillez saisir un simple entier.\n")
         except AttributeError:
-            print("Veuillez saisir un entier valide.\n")
+            print(f"Veuillez saisir un entier plus grand que {limite_min}. ({sentinelle} pour quitter)\n")
 
 
 def lire_caractere_ensemble(question: str, ensemble: str) -> str:
@@ -238,12 +271,11 @@ def lire_caractere_ensemble(question: str, ensemble: str) -> str:
             print("Veuillez saisir un seul caractère.\n")
             continue
 
-        if not caractere in ensemble:
-            print("Veuillez saisir un caractère valide.\n")
+        if caractere not in ensemble:
+            print(f"Veuillez saisir un caractère valide ({ensemble}).\n")
             continue
 
         return caractere
-
 
 
 def confirmer(question: str) -> bool:
